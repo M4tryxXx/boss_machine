@@ -1,7 +1,4 @@
-const {
-  getAllFromDatabase,
-  getFromDatabaseById,
-} = require("./db");
+const { getAllFromDatabase, getFromDatabaseById } = require("./db");
 
 const validateMinionById = (req, res, next) => {
   const id = Number(req.params.minionId);
@@ -31,7 +28,7 @@ const validateWorkId = (req, res, next) => {
   }
 };
 
-const validateItemById = (req, res, next) => {
+const validateIdeaById = (req, res, next) => {
   const itemId = Number(req.params.id);
   const item = getFromDatabaseById("ideas", itemId);
 
@@ -44,5 +41,5 @@ const validateItemById = (req, res, next) => {
 module.exports = {
   validateMinionById,
   validateWorkId,
-  validateItemById,
+  validateIdeaById,
 };

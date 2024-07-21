@@ -8,7 +8,7 @@ const {
   deleteFromDatabasebyId,
 } = require("./db");
 
-const { validateItemById } = require("./utils");
+const { validateIdeaById } = require("./utils");
 
 const checkMillionDollarIdea = require("./checkMillionDollarIdea");
 
@@ -16,11 +16,11 @@ ideasRoute.get("/", (req, res, next) => {
   res.status(200).send(getAllFromDatabase("ideas"));
 });
 
-ideasRoute.get("/:id", validateItemById, (req, res) => {
+ideasRoute.get("/:id", validateIdeaById, (req, res) => {
   res.status(200).send(getFromDatabaseById("ideas", Number(req.params.id)));
 });
 
-ideasRoute.put("/:id", validateItemById, (req, res, next) => {
+ideasRoute.put("/:id", validateIdeaById, (req, res, next) => {
   const newIdea = updateInstanceInDatabase("ideas", req.body);
   return res.status(200).send(newIdea);
 });
@@ -33,7 +33,7 @@ ideasRoute.post("/", checkMillionDollarIdea, (req, res, next) => {
   }
 });
 
-ideasRoute.delete("/:id", validateItemById, (req, res, next) => {
+ideasRoute.delete("/:id", validateIdeaById, (req, res, next) => {
   deleteFromDatabasebyId("ideas", Number(req.params.id));
   res.status(204).send();
 });
