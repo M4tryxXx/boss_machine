@@ -23,9 +23,9 @@ In this project, I created an entire API to serve information to a Boss Machine,
   - POST /api/meetings to create a new meeting and save it to the database.
   - DELETE /api/meetings to delete _all_ meetings from the database.
 
-For all `/api/minions` and `/api/ideas routes`, any POST or PUT requests will send their new/updated resources in the request body. 
+For all `/api/minions` and `/api/ideas routes`, any POST or PUT requests will send their new/updated resources in the request body.
 
-For `/api/meetings` POST route, no request body is necessary, as meetings are generated automatically by the server upon request. 
+For `/api/meetings` POST route, no request body is necessary, as meetings are generated automatically by the server upon request.
 
 ### Working with the 'Database'
 
@@ -55,13 +55,13 @@ The **server/db.js** file exports helper functions for working with the database
 
 - Takes only the single argument for model name. Deletes all elements from the proper model and returns a new, empty array. You will only need to use this function for a /api/meetings route.
 
-### Util functions 
+### Util functions
 
 The **server/utils.js** file exports midleware to refractor code in requests. These are:
-- validateMinionById,
-- validateIdeaById,
-- validateWorkId
 
+- `validateMinionById`,
+- `validateIdeaById`,
+- `validateWorkId`
 
 #### Schemas
 
@@ -82,7 +82,6 @@ The **server/utils.js** file exports midleware to refractor code in requests. Th
   - day: string
   - note: string
 
-
 ### Bonus
 
 As a bonus, I have implemented routes to allow bosses to add and remove work from their minions' backlogs.
@@ -98,7 +97,7 @@ Schema:
 
 Routes:
 
-- GET /api/minions/:minionId/work to get an array of all work for the specified minon.
-- POST /api/minions/:minionId/work to create a new work object and save it to the database.
-- PUT /api/minions/:minionId/work/:workId to update a single work by id.
-- DELETE /api/minions/:minionId/work/:workId to delete a single work by id.
+- GET `/api/minions/:minionId/work` to get an array of all work for the specified minon.
+- POST `/api/minions/:minionId/work` to create a new work object and save it to the database.
+- PUT `/api/minions/:minionId/work/:workId` to update a single work by id.
+- DELETE `/api/minions/:minionId/work/:workId` to delete a single work by id.
